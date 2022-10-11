@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:shopapp/data/global/global_data.dart';
 import 'package:shopapp/data/network/database.dart';
-import 'package:firebase_auth/firebase_auth.dart';
 
 class ProductDetails extends StatefulWidget {
   final String? artikelId;
@@ -21,21 +20,6 @@ class _ProductDetailsState extends State<ProductDetails> {
   final DatabaseService _databaseService = DatabaseService();
   int menge =0;
   num summe=0;
-  String? currentUserId;
-  final FirebaseAuth _auth = FirebaseAuth.instance;
-
-  Future<String?> getCurrentUser()async{
-    final User? user = _auth.currentUser;
-    currentUserId = user!.uid;
-    return currentUserId;
-  }
-
-
-  @override
-  void initState() {
-    super.initState();
-    getCurrentUser();
-  }
 
   @override
   Widget build(BuildContext context) {

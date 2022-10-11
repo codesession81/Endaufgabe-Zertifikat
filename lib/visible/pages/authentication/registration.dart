@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
+import 'package:shopapp/data/consts/errors/error_fields.dart';
 import 'package:shopapp/processor/authentication/auth_service.dart';
 import 'package:shopapp/processor/validation/age/is_age_empty.dart';
 import 'package:shopapp/processor/validation/age/is_age_valid.dart';
@@ -7,7 +7,6 @@ import 'package:shopapp/processor/validation/email/is_email_empty.dart';
 import 'package:shopapp/processor/validation/email/is_email_valid.dart';
 import 'package:shopapp/processor/validation/password/is_length_valid.dart';
 import 'package:shopapp/processor/validation/password/is_pw_empty.dart';
-import 'package:shopapp/visible/errors/error_fields.dart';
 import 'package:shopapp/visible/loading/loading.dart';
 import 'package:shopapp/visible/pages/authentication/login.dart';
 

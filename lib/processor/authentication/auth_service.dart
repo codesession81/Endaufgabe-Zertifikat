@@ -7,19 +7,17 @@ class AuthService{
   final FirebaseAuth _auth = FirebaseAuth.instance;
   final DatabaseService _db = DatabaseService();
 
-  //Create acount with email and password and set the referenced customer registration data to the database
   Future<User?> createAccountWithEmailAndPassword(String email,String vorname,String nachname,String alter,String strasse,String hausnr,String stadt,String password)async{
    try{
      UserCredential userCredential = await _auth.createUserWithEmailAndPassword(email: email, password: password);
      final User? user = userCredential.user;
-     _db.setCustomerRegistrationData(userCredential.user!.uid,email,password, vorname, nachname, alter, strasse, hausnr, stadt);
+     _db.setCustomerRegistrationData(uid:userCredential.user!.uid,email:email,vorname:vorname,nachname:nachname,alter:alter,strasse:strasse,hausnr:hausnr);
      return user;
    }catch(error){
      print(error.toString());
    }
   }
 
-  //Login with email and password
   Future<User?> loginWithEmailAndPassword(String email,String password)async{
     try{
       UserCredential loginResult = await _auth.signInWithEmailAndPassword(email: email, password: password);
@@ -31,7 +29,6 @@ class AuthService{
     }
   }
 
-  //Logout
   Future logout()async{
     try{
       GlobalData.currentUserId = null;

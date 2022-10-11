@@ -1,4 +1,5 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:shopapp/data/consts/model_fields/product_fields.dart';
 
 class Product {
   final String? artikelId;
@@ -12,12 +13,12 @@ class Product {
 
   factory Product.fromJson(DocumentSnapshot doc){
     return Product(
-      artikelId: doc['id'],
-      title: doc['title'],
-      price: doc['price'],
-      description: doc['description'],
-      category: doc['category'],
-      image: doc['image'],
+      artikelId: doc[ProductFields.artikelId],
+      title: doc[ProductFields.title],
+      price: doc[ProductFields.price],
+      description: doc[ProductFields.description],
+      category: doc[ProductFields.category],
+      image: doc[ProductFields.image],
     );
   }
 }
